@@ -1,7 +1,35 @@
 package peaksoft;
 
+import peaksoft.service.UserService;
+import peaksoft.service.UserServiceImpl;
+
+import java.sql.SQLException;
+import java.util.Scanner;
+
 public class Main {
-    public static void main(String[] args) {
-        // реализуйте алгоритм здесь
+    public static void main(String[] args) throws SQLException {
+        UserService userService = new UserServiceImpl();
+
+// удаление таблицы
+        userService.dropUsersTable();
+
+// создание таблицы
+        userService.createUsersTable();
+
+// заполнение таблицы
+        userService.saveUser("Talgar", "Yryskulov", (byte) 21);
+        userService.saveUser("Akylbek", "Nurbekov", (byte) 20);
+        userService.saveUser("Amantur", "Askarbekov", (byte) 20);
+        userService.saveUser("Aktan", "Omurzakov", (byte) 21);
+
+//вывод на консоль все данные
+          userService.getAllUsers();
+
+//удаление по id
+        userService.removeUserById(1);
+
+//очистка таблицы
+        userService.cleanUsersTable();
+
     }
 }
