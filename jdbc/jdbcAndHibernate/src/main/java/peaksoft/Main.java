@@ -1,5 +1,6 @@
 package peaksoft;
 
+import peaksoft.model.User;
 import peaksoft.service.UserService;
 import peaksoft.service.UserServiceImpl;
 
@@ -11,25 +12,29 @@ public class Main {
         UserService userService = new UserServiceImpl();
 
 // удаление таблицы
-        userService.dropUsersTable();
+//        userService.dropUsersTable();
 
 // создание таблицы
-        userService.createUsersTable();
-
+//        userService.createUsersTable();
+//
 // заполнение таблицы
-        userService.saveUser("Talgar", "Yryskulov", (byte) 21);
-        userService.saveUser("Akylbek", "Nurbekov", (byte) 20);
-        userService.saveUser("Amantur", "Askarbekov", (byte) 20);
-        userService.saveUser("Aktan", "Omurzakov", (byte) 21);
+//        userService.saveUser("Talgar", "Yryskulov", (byte) 21);
+//        userService.saveUser("Akylbek", "Nurbekov", (byte) 20);
+//        userService.saveUser("Amantur", "Askarbekov", (byte) 20);
+//        userService.saveUser("Aktan", "Omurzakov", (byte) 21);
 
 //вывод на консоль все данные
-          userService.getAllUsers();
+        for (User l:userService.getAllUsers()) {
+            System.out.println(l);
+
+        }
+//          userService.getAllUsers();
 
 //удаление по id
-        userService.removeUserById(1);
+//        userService.removeUserById(1);
 
 //очистка таблицы
-        userService.cleanUsersTable();
+//        userService.cleanUsersTable();
 
     }
 }
